@@ -11,11 +11,11 @@ st.title("📰 Live News Feed from Airflow ETL")
 # --- Connect to PostgreSQL database ---
 def get_connection():
     return psycopg2.connect(
-        host=os.getenv('aws-0-us-west-1.pooler.supabase.com'),
-        database=os.getenv('DATABASE_URL=postgresql://postgres:Supabase@1234@db.uvknunlzgzwluogzhybp.supabase.co:5432/postgres'),
-        user=os.getenv('postgres.uvknunlzgzwluogzhybp '),
-        password=os.getenv('Supabase@1234'),
-        port=os.getenv('6543', 5432)
+        host=os.getenv("DB_HOST"),
+        database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        port=os.getenv("DB_PORT", 5432)
     )
 
 # --- Fetch latest news ---
