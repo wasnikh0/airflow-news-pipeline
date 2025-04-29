@@ -8,7 +8,7 @@ import os
 # DAG arguments
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2024, 1, 1),
+    'start_date': datetime(2025, 1, 1),
     'retries': 1,
 }
 
@@ -19,7 +19,7 @@ NEWS_API_KEY = '8e111a2ff1a24c96a25e3d8e1606082a'  # <- replace this
 with DAG(
     dag_id='news_etl_to_postgres',
     default_args=default_args,
-    schedule_interval='@hourly',  # Run hr
+    schedule_interval='@daily',  # Run hr
     catchup=False
 ) as dag:
 
