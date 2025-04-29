@@ -1,6 +1,7 @@
 import streamlit as st
 import psycopg2
 import pandas as pd
+import os
 
 # --- Streamlit page settings ---
 st.set_page_config(page_title="Live News Feed", page_icon="📰", layout="wide")
@@ -10,11 +11,11 @@ st.title("📰 Live News Feed from Airflow ETL")
 # --- Connect to PostgreSQL database ---
 def get_connection():
     return psycopg2.connect(
-        host="localhost",
-        database="airflow",
-        user="airflow",
-        password="airflow",
-        port="5432"
+        host=os.getenv('aws-0-us-west-1.pooler.supabase.com'),
+        database=os.getenv('DATABASE_URL=postgresql://postgres:Supabase@1234@db.uvknunlzgzwluogzhybp.supabase.co:5432/postgres'),
+        user=os.getenv('postgres.uvknunlzgzwluogzhybp '),
+        password=os.getenv('Supabase@1234'),
+        port=os.getenv('6543', 5432)
     )
 
 # --- Fetch latest news ---
